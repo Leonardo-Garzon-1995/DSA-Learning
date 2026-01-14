@@ -2,6 +2,61 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <stdexcept>
+
+class DynamicArray {
+    private:
+        int* data; // pointer to the static array
+        int size; // number of current elemets stored
+        int capacity; // max number of elements 
+
+        // when array is full:
+        void resize() {
+            capacity *= 2; // double the capacity
+            int* newData = new int[capacity]; // create new array
+
+            for (int i = 0; i < size; i++) {
+                newData[i] = data[i]; // copy elements from old array to new array
+            }
+
+            delete[] data; // delete old array
+            data = newData; // update pointer
+        }
+    
+    public:
+        DynamicArray() {
+            capacity = 2;
+            size = 0;
+            data = new int[capacity];
+        }
+
+        ~DynamicArray() {
+            delete[] data;
+        }
+
+        void push(int value) {
+            if (size == capacity) {
+                resize();
+            }
+            data[size] = value;
+            size++;
+        }
+
+        int& operator[](int index) {
+            if (index < 0 || index >= size) {
+                throw std::out_of_range("Index out of range");
+            }
+            return data[index];
+        }
+
+        int getSize() {
+            return size;
+        }
+
+        int getCapacity() {
+            return capacity;
+        }
+};
 
 int main() {
     // Dynamic array/vector
@@ -71,6 +126,21 @@ int main() {
 
     // Length - O(1)
     std::cout << "String's length: " << s.size() << std::endl;
+
+    DynamicArray arrB;
+    arrB.push(1);
+    arrB.push(2);
+    arrB.push(3);
+
+    std::cout << "==================================================" << std::endl;
+    std::cout << "Initial array B: ";
+    for (int i = 0; i < arrB.getSize(); i++) {
+        std::cout << arrB[i] << " ";
+    }
+
+    std::cout << "Size of array B: " << arrB.getSize() << std::endl;
+    std::cout << "Capacity of array B: " << arrB.getCapacity() << std::endl;
+    std::cout << std::endl;
 
     return 0;
 
