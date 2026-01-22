@@ -16,7 +16,7 @@ class SingleNodeLinkedList {
     public:
     Node* head;
 
-    SingleNodeLinkedList(){
+    SingleNodeLinkedList() {
         head = NULL;
     }
 };
