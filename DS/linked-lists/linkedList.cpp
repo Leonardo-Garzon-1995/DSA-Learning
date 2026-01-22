@@ -12,6 +12,15 @@ class Node {
     }
 };
 
+class SingleNodeLinkedList {
+    public:
+    Node* head;
+
+    SingleNodeLinkedList(){
+        head = NULL;
+    }
+};
+
 int getSize(Node* head){
     int count = 0;
     Node* current = head;
