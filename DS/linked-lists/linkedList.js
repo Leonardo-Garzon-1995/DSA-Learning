@@ -1,3 +1,4 @@
+// SINGLE LINKED LIST
 class Node {
     constructor(val) {
         this.value = val;
