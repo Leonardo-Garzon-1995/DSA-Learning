@@ -77,4 +77,4 @@ newll.insertAtHead(-1)
 
 
 newll.print()
-console.log(newll.contains("a"))
+console.log(newll.contains(-1))
