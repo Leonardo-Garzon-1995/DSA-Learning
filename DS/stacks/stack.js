@@ -1,3 +1,4 @@
+// Implementation of a stack using an array
 let stack = []
 
 // Initial stack
@@ -23,3 +24,8 @@ console.log("Stack after popping element: ", stack)
 let y = stack[stack.length - 1]
 console.log("Peeked element: ", y)
 console.log("Stack after peeking element: ", stack)
+
+// Check if stack is empty - O(1)
+console.log("Is stack empty? ", stack.length === 0)
+
+// Implementing stack using a doubly linked list
