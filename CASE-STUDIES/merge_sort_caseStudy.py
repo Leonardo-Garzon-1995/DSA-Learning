@@ -32,8 +32,10 @@ def merge_sort(array):
         right_array_index += 1
         sorted_index += 1
     
-letters = [1, 2, 3]
 
-middle_point = len(letters) // 2
-print("left:", letters[:middle_point])
-print("right: ",letters[middle_point:])
+numbers = [4, 10, 6, 14, 2, 1, 8, 5]
+print('Unsorted array: ')
+print(numbers)
+merge_sort(numbers)
+print('Sorted array: ')
+print(numbers)
