@@ -26,11 +26,11 @@ def verify_card_number(digits):
             nums = [int(c) for c in str(acc_num[n])]
             acc_num[n] = nums[0] + nums[1]
     
-
+    print(sum(acc_num))
     if sum(acc_num) % 10 == 0:
         return "VALID!"
     else:
         return "INVALID!" 
 
 
-print(verify_card_number("4111-1111-1111-1111"))
+print(verify_card_number("11122"))
