@@ -4,6 +4,10 @@
 #include <string>
 #include <stdexcept>
 
+/**
+ * Dynamic array implementation in C++. 
+ * This class mimics the behavior of a dynamic array (like std::vector) by managing its own memory and resizing when necessary. It supports basic operations such as adding elements, accessing elements, and checking the size and capacity of the array.
+ */
 class DynamicArray {
     private:
         int* data; // pointer to the static array
@@ -13,13 +17,14 @@ class DynamicArray {
         // when array is full:
         void resize() {
             capacity *= 2; // double the capacity
-            int* newData = new int[capacity]; // create new array
+            int* newData = new int[capacity]; // create new array in the heap with the new capacity
+
 
             for (int i = 0; i < size; i++) {
                 newData[i] = data[i]; // copy elements from old array to new array
             }
 
-            delete[] data; // delete old array
+            delete[] data; // delete old array - very important to avoid memory leaks
             data = newData; // update pointer
         }
     

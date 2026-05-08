@@ -39,7 +39,12 @@ int main(){
     nodeB.next = &nodeC;
     nodeC.next = &nodeD;
 
-    std::cout << getSize(&nodeA);
+    std::cout << "A value: " << nodeA.data << "\n";
+    std::cout << "B value: " << nodeA.next->data << "\n";
+    std::cout << "C value: " << nodeA.next->next->data << "\n";
+    std::cout << "D value: " << nodeA.next->next->next->data << "\n";
+
+    std::cout << "Size of linked list: " << getSize(&nodeA) << "\n";
     return 0;
 
     

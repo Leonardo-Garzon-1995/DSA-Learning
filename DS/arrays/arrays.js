@@ -1,4 +1,4 @@
-// Static Arrays, Dynamic Arrays, and Strings - Greg Hogg DSA Course Materials Lecture 2
+// Static Arrays, Dynamic Arrays, and Strings
 
 // Arrays
 let A = [1, 2, 3];
