@@ -47,6 +47,15 @@ class DynamicArray {
             size++;
         }
 
+        void pop() {
+            if (size > 0) {
+                size--;
+
+            } else {
+                throw std::out_of_range("Array is empty");
+            }
+        }
+
         int& operator[](int index) {
             if (index < 0 || index >= size) {
                 throw std::out_of_range("Index out of range");
@@ -60,6 +69,21 @@ class DynamicArray {
 
         int getCapacity() {
             return capacity;
+        }
+
+        void print() {
+
+            std::string result {"["};
+
+            for (int i = 0; i < size; i++) {
+                result += std::to_string(data[i]);
+                if (i < size - 1) {
+                    result += ", ";
+                }
+
+            }
+            result += "]";
+            std::cout << result << '\n';
         }
 };
 
@@ -132,20 +156,24 @@ int main() {
     // Length - O(1)
     std::cout << "String's length: " << s.size() << std::endl;
 
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "Custom Dynamic Array Implementation" << std::endl;
+
     DynamicArray arrB;
     arrB.push(1);
     arrB.push(2);
     arrB.push(3);
 
     std::cout << "==================================================" << std::endl;
-    std::cout << "Initial array B: ";
-    for (int i = 0; i < arrB.getSize(); i++) {
-        std::cout << arrB[i] << " ";
-    }
-
+    arrB.print();
     std::cout << "Size of array B: " << arrB.getSize() << std::endl;
     std::cout << "Capacity of array B: " << arrB.getCapacity() << std::endl;
-    std::cout << std::endl;
+    arrB.pop();
+    arrB.print();
+    
+    std::cout << "Size of array B: " << arrB.getSize() << std::endl;
+    std::cout << "Capacity of array B: " << arrB.getCapacity() << std::endl;
+    
 
     return 0;
 
