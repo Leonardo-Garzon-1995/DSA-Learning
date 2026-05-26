@@ -85,7 +85,20 @@ class DynamicArray {
             result += "]";
             std::cout << result << '\n';
         }
+
+        friend std::ostream& operator<<(std::ostream& os, const DynamicArray& arr) {
+            os << "[";
+            for (int i = 0; i < arr.size; i++) {
+                os << arr.data[i];
+                if (i < arr.size - 1) {
+                    os << ", ";
+                }
+            }
+            os << "]";
+            return os;
+        }
 };
+
 
 int main() {
     // Dynamic array/vector
@@ -163,14 +176,16 @@ int main() {
     arrB.push(1);
     arrB.push(2);
     arrB.push(3);
+    arrB.push(4);
+    arrB.push(5);
 
     std::cout << "==================================================" << std::endl;
     arrB.print();
     std::cout << "Size of array B: " << arrB.getSize() << std::endl;
     std::cout << "Capacity of array B: " << arrB.getCapacity() << std::endl;
     arrB.pop();
-    arrB.print();
-    
+    std::cout << arrB << '\n';
+
     std::cout << "Size of array B: " << arrB.getSize() << std::endl;
     std::cout << "Capacity of array B: " << arrB.getCapacity() << std::endl;
     
